@@ -282,6 +282,10 @@ class NuitkaPluginPopularImplicitImports(NuitkaPluginBase):
             "cryptography.hazmat.bindings._padding",
         ):
             yield "_cffi_backend"
+        elif full_name.startswith("cryptography.hazmat"):
+            yield "cryptography.hazmat.bindings._openssl"
+            yield "cryptography.hazmat.bindings._constant_time"
+            yield "cryptography.hazmat.bindings._padding"
         elif full_name.startswith("cryptography._Cryptography_cffi_"):
             yield "_cffi_backend"
         elif full_name == "bcrypt._bcrypt":
